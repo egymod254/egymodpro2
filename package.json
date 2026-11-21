@@ -1,0 +1,19 @@
+{
+  "name": "hr-app",
+  "version": "1.0.0",
+  "description": "شؤون الموظفين - الإضافي والجزاءات والغياب والسلف والإجازات",
+  "author": "HR",
+  "main": "electron/main.js",
+  "scripts": { "start": "electron .", "dist": "electron-builder --publish never" },
+  "dependencies": { "@capacitor/core": "^6.1.2", "@capacitor/android": "^6.1.2" },
+  "devDependencies": { "@capacitor/cli": "^6.1.2", "electron": "^31.3.1", "electron-builder": "^24.13.3" },
+  "build": {
+    "appId": "com.company.hrapp",
+    "productName": "HRApp",
+    "directories": { "output": "dist" },
+    "files": ["www/**", "electron/**", "package.json"],
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }] },
+    "mac": { "target": [{ "target": "zip", "arch": ["x64", "arm64"] }, { "target": "dmg" }], "category": "public.app-category.business", "identity": null },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
